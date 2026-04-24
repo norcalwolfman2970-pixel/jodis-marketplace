@@ -10,15 +10,16 @@ export async function POST(req: Request) {
       mode: "payment",
       payment_method_types: ["card"],
       line_items: body.items.map((item: any) => ({
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: item.name,
-          },
-          unit_amount: Math.round(item.price * 100),
-        },
-        quantity: item.qty,
-      })),
+  price_data: {
+    currency: "usd",
+    product_data: {
+      name: item.name,
+      tax_code: "txcd_10000000",
+    },
+    unit_amount: Math.round(item.price * 100),
+  },
+  quantity: item.qty,
+})),
       automatic_tax: {
         enabled: true,
       },
@@ -26,8 +27,8 @@ export async function POST(req: Request) {
       shipping_address_collection: {
         allowed_countries: ["US"],
       },
-      success_url: "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
-cancel_url: "http://localhost:3000",
+      success_url: "https://jodis-marketplace-phi.vercel.app/success?session_id={CHECKOUT_SESSION_ID}",
+cancel_url: "https://jodis-marketplace-phi.vercel.app",
     });
 
     return Response.json({ url: session.url });
