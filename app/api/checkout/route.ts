@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     tax_behavior: "exclusive",
     product_data: {
       name: item.name,
-      tax_code: "txcd_10000000",
+      tax_code: "txcd_99999999",
     },
     unit_amount: Math.round(item.price * 100),
   },
