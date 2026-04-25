@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-  
+
   try {
     const body = await req.json();
 
@@ -32,9 +32,7 @@ export async function POST(req: Request) {
       },
 
       customer_creation: "always",
-customer_update: {
-  shipping: "auto",
-  address: "auto",
+
 },
       billing_address_collection: "required",
       shipping_address_collection: {
