@@ -30,7 +30,10 @@ export async function POST(req: Request) {
       },
 
       customer_creation: "always",
-
+customer_update: {
+  shipping: "auto",
+  address: "auto",
+},
       billing_address_collection: "required",
       shipping_address_collection: {
         allowed_countries: ["US"],
