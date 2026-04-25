@@ -18,6 +18,10 @@ const productBlocks = [
 ];
 
 export default function Page() {
+  const [authorized, setAuthorized] = useState(false);
+const [input, setInput] = useState("");
+
+const PASSWORD = "jodi2026";
   const [cart, setCart] = useState<any[]>([]);
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
@@ -35,7 +39,33 @@ export default function Page() {
     });
   };
 
- const submitOrder = async () => {
+ if (!authorized) {
+  return (
+    <div style={{ padding: "40px", textAlign: "center" }}>
+      <h1>Private Ordering Portal</h1>
+      <p>Enter password to continue</p>
+
+      <input
+        type="password"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        style={{ padding: "10px", fontSize: "16px" }}
+      />
+
+      <br /><br />
+
+      <button
+        onClick={() => {
+          if (input === PASSWORD) setAuthorized(true);
+          else alert("Wrong password");
+        }}
+        style={{ padding: "10px 20px", fontSize: "16px" }}
+      >
+        Enter
+      </button>
+    </div>
+  );
+}const submitOrder = async () => {
   if (cart.length === 0) {
     alert("Cart is empty");
     return;
