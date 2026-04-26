@@ -1,26 +1,31 @@
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function POST(req: Request) {
-  const data = await req.json();
+  try {
+    const data = await req.json();
 
-  const addr =
-    data.shipping_details?.address ||
-    data.customer_details?.address;
+    const addr =
+      data.shipping_details?.address ||
+      data.customer_details?.address;
 
-  const name =
-    data.shipping_details?.name ||
-    data.customer_details?.name;
+    const name =
+      data.shipping_details?.name ||
+      data.customer_details?.name;
 
-  const items =
-    data.line_items?.data
-      ?.map(
-        (item: any) =>
-          `${item.description} x ${item.quantity}`
-      )
-      .join("\n") || "No items";
+    const items =
+      data.line_items?.data
+        ?.map(
+          (item: any) =>
+            `${item.description} x ${item.quantity}`
+        )
+        .join("\n") || "No items";
 
-  const total = (data.amount_total / 100).toFixed(2);
+    const total = (data.amount_total / 100).toFixed(2);
 
-  const body = `
-New Order
+    const emailBody = `
+New Order 🚀
 
 Customer: ${name}
 
@@ -34,7 +39,16 @@ ${items}
 Total: $${total}
 `;
 
-  const mailto = `mailto:admin@wolfindustries.net?subject=New Order&body=${encodeURIComponent(body)}`;
+    await resend.emails.send({
+      from: "orders@wolfindustries.net",
+      to: "admin@wolfindustries.net",
+      subject: "New Order - Jodi Marketplace",
+      text: emailBody,
+    });
 
-  return Response.json({ url: mailto });
+    return Response.json({ success: true });
+  } catch (err) {
+    console.error(err);
+    return new Response("Email error", { status: 500 });
+  }
 }
