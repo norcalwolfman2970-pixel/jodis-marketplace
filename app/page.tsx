@@ -3,6 +3,27 @@
 import { useMemo, useState } from "react";
 
 const productBlocks = [
+  {
+  sku: "DESK-031",
+  name: "Folding Computer Desk - 31.5\"",
+  description: "Compact folding desk, teak and white, fully assembled, ideal for small spaces",
+  price: 115,
+  image: "/images/desk-31.png",
+},
+{
+  sku: "DESK-039",
+  name: "Folding Computer Desk - 39\"",
+  description: "Standard folding desk, teak and white, fully assembled",
+  price: 125,
+  image: "/images/desk-31.png",
+},
+{
+  sku: "DESK-047",
+  name: "Folding Computer Desk - 47\"",
+  description: "Large folding desk, teak and white, fully assembled, great for dual monitors",
+  price: 155,
+  image: "/images/desk-31.png",
+},
   { sku: "BLOCK-001", name: "Item 1", description: "EPSON 502 EcoTank Ink Ultra-high Capacity Bottle Black Works with ET-2850, ET-2980, ET-2988, ET-3850, ET-3930, ET-3950, ET-4850, ET-4950 and other select EcoTank models", price: 32, image: "/images/epson-502-black.png" },
   { sku: "BLOCK-002", name: "Item 2", description: "EPSON 502 EcoTank Ink Ultra-high Capacity Bottle Cyan Works with ET-2850, ET-2980, ET-2988, ET-3850, ET-3930, ET-3950, ET-4850, ET-4950 and other select EcoTank models", price: 22, image: "/images/epson-502-cyan.png" },
   { sku: "BLOCK-003", name: "Item 3", description: "EPSON 502 EcoTank Ink Ultra-high Capacity Bottle Magenta Works with ET-2850, ET-2980, ET-2988, ET-3850, ET-3930, ET-3950, ET-4850, ET-4950 and other select EcoTank models", price: 22, image: "/images/epson-502-magenta.png" },
