@@ -41,7 +41,7 @@ Total: $${total}
 `;
 
     await resend.emails.send({
-      from: "orders@wolfindustries.net",
+      from: "Wolf Industries Orders <onboarding@resend.dev>",
       to: "admin@wolfindustries.net",
       subject: "New Order - Jodi Marketplace",
       text: emailBody,
