@@ -25,9 +25,9 @@ export default function SuccessPage() {
   body: JSON.stringify(json),
 })
   .then((res) => res.json())
-  .then((data) => {
-    window.location.href = data.url;
-  });
+  .then(() => {
+  console.log("Order email sent");
+});
 })
       .catch(console.error);
   }, []);
