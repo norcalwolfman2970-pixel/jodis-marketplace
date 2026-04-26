@@ -15,6 +15,10 @@ const productBlocks = [
   { sku: "BLOCK-010", name: "Item 10", description: "EXPO Dry Erase Markers, Low Odor Ink, Assorted Fashion Colors, Chisel Tip, 36 Count - Easily Erases, Ideal for Classroom, Home, Office", price: 34, image: "/images/expo markers 36 pack.png" },
   { sku: "BLOCK-011", name: "Item 11", description: "Amazon Basics Multipurpose Copy Printer Paper, 20 lb, 8.5 x 11 Inches, 5 Reams (2,500 Sheets), 92 Bright White", price: 35, image: "/images/copy paper 5 reams.png" },
   { sku: "BLOCK-012", name: "Item 12", description: "PILOT G2 Premium Refillable & Retractable Rolling Ball Gel Pens, Fine Point, Black Ink, 12 Count (Pack of 1) (31020)", price: 16, image: "/images/black gel pens.png" },
+  { sku: "BLOCK-013", name: "Item 13", description: "HP 902 Black Ink Cartridge", price: 34, image: "/images/hp-902-black.png" },
+  { sku: "BLOCK-014", name: "Item 14", description: "HP 902 Tri-color Ink Cartridge", price: 62, image: "/images/hp-902-color.png" },
+  { sku: "BLOCK-015", name: "Item 15", description: "HP 62 Black Ink Cartridge", price: 30, image: "/images/hp-62-black.png" },
+  { sku: "BLOCK-016", name: "Item 16", description: "HP 62 Tri-color Ink Cartridge", price: 72, image: "/images/hp-62-color.png" },
 ];
 
 export default function Page() {
