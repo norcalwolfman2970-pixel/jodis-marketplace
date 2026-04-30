@@ -9,6 +9,7 @@ const productBlocks = [
   description: "Compact folding desk, teak and white, fully assembled, ideal for small spaces",
   price: 115,
   image: "/images/desk-31.png",
+  category: "Furniture",
 },
 {
   sku: "DESK-039",
@@ -16,6 +17,7 @@ const productBlocks = [
   description: "Standard folding desk, teak and white, fully assembled",
   price: 125,
   image: "/images/desk-31.png",
+  category: "Furniture",
 },
 {
   sku: "DESK-047",
@@ -23,6 +25,7 @@ const productBlocks = [
   description: "Large folding desk, teak and white, fully assembled, great for dual monitors",
   price: 155,
   image: "/images/desk-31.png",
+  category: "Furniture",
 },
   { sku: "BLOCK-001", name: "Item 1", description: "EPSON 502 EcoTank Ink Ultra-high Capacity Bottle Black Works with ET-2850, ET-2980, ET-2988, ET-3850, ET-3930, ET-3950, ET-4850, ET-4950 and other select EcoTank models", price: 32, image: "/images/epson-502-black.png" },
   { sku: "BLOCK-002", name: "Item 2", description: "EPSON 502 EcoTank Ink Ultra-high Capacity Bottle Cyan Works with ET-2850, ET-2980, ET-2988, ET-3850, ET-3930, ET-3950, ET-4850, ET-4950 and other select EcoTank models", price: 22, image: "/images/epson-502-cyan.png" },
@@ -126,11 +129,25 @@ const updateCartQty = (sku: string, change: number) => {
 };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold mb-6">Jodi’s Marketplace </h1>
-      <p className="mb-6 text-gray-500">
-  Powered by Wolf Industries – Fast sourcing. Simple ordering.
-</p>
+    <div className="min-h-screen bg-gray-100">
+  <div className="sticky top-0 z-50 bg-white shadow border-b">
+    <div className="flex items-center gap-4 px-6 py-4">
+      <img
+        src="/images/wolf-logo.png"
+        alt="Wolf Industries Logo"
+        className="h-14 w-14 object-contain"
+      />
+
+      <div>
+        <h1 className="text-3xl font-bold">Wolf Industries Quick Order</h1>
+        <p className="text-sm text-gray-600">
+          DVBE Supplier – Fast sourcing for office, PPE, facility, and custom orders.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <main className="p-6">
 
      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {productBlocks.map((product) => (
@@ -201,7 +218,9 @@ const updateCartQty = (sku: string, change: number) => {
 >
   CheckOut
 </button>
+
       </div>
+      </main> 
     </div>
   );
 }
