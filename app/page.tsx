@@ -511,81 +511,110 @@ const updateCartQty = (sku: string, change: number) => {
   );
 };
 
-  return (
-    <div className="min-h-screen bg-gray-100">
-  <div className="sticky top-0 z-50 bg-white shadow border-b">
-    <div className="flex items-center justify-between px-6 py-4">
+ return (
+  <div className="min-h-screen bg-gray-100">
+    <div className="sticky top-0 z-50 bg-white shadow border-b">
+      <div className="flex items-center justify-between px-6 py-4">
+        {/* LEFT LOGO */}
+        <img
+          src="/images/wolf-logo.webp"
+          alt="Wolf Logo"
+          className="h-12 w-12 object-contain"
+        />
 
-      {/* LEFT LOGO */}
-      <img
-        src="/images/wolf-logo.webp"
-        alt="Wolf Logo"
-        className="h-12 w-12 object-contain"
-      />
+        {/* CENTER TEXT */}
+        <div className="text-center flex-1">
+          <h1 className="text-3xl font-bold">
+            Wolf Industries Quick Order
+          </h1>
 
-      {/* CENTER TEXT */}
-      <div className="text-center flex-1">
-        <h1 className="text-3xl font-bold">
-          Wolf Industries Quick Order
-        </h1>
-        <p className="text-sm text-gray-600">
-          DVBE Supplier – Fast sourcing for office, PPE, facility, and custom orders
-        </p>
+          <p className="text-sm font-bold text-blue-900 mt-1 tracking-wide">
+  ★ DVBE Certified | ★ SB Micro Certified | P-Card Accepted
+</p>
+        </div>
+
+        {/* RIGHT SIDE: CART + LOGO */}
+        <div className="flex items-center gap-3">
+          <div
+            onClick={scrollToCheckout}
+            className="bg-gray-100 border px-3 py-2 rounded-lg text-sm font-semibold whitespace-nowrap cursor-pointer hover:bg-gray-200"
+          >
+            🛒 {cart.length} items | ${total.toFixed(2)}
+          </div>
+
+          <img
+            src="/images/wolf-logo.webp"
+            alt="Wolf Logo"
+            className="h-12 w-12 object-contain"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div className="mx-6 mt-4 mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-gray-700">
+  <strong>Government Quick Order Portal</strong><br />
+  Fast ordering with P-Card accepted. Office supplies, PPE, janitorial, and more.<br />
+  Need something not listed? We’ll source it.
+</div>
+
+    <main className="p-6">
+      <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-gray-700">
+        <strong>Order directly from this page for fast processing.</strong><br />
+        All orders are confirmed with Wolf Industries and completed in accordance with agency requirements.
+      </div>
+      <div className="mx-6 mb-6 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-800">
+  ✔ Fast P-Card Processing | ✔ Quick Turnaround | ✔ DVBE Spend Credit Eligible
+</div>
+<div className="mx-6 mb-6">
+  <h2 className="text-lg font-bold mb-2">Top Quick Order Items</h2>
+  <div className="flex gap-3 overflow-x-auto">
+    {filteredProducts.slice(0, 8).map((product) => (
+      <div key={product.sku} className="min-w-[140px] bg-white p-2 rounded shadow-sm">
+        <img src={product.image} className="h-20 w-full object-contain" />
+        <p className="text-xs font-semibold mt-1">{product.name}</p>
+        <p className="text-xs">${product.price}</p>
+        <button
+  onClick={() => addToCart(product)}
+  className="mt-2 bg-blue-900 text-white px-3 py-1.5 text-xs rounded hover:bg-blue-800 w-full"
+>
+  Add to Order
+</button>
+      </div>
+    ))}
+  </div>
+</div>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-4 py-2 rounded-lg border font-semibold ${
+              activeCategory === category
+                ? "bg-blue-900 text-white border-blue-900"
+                : "bg-white text-blue-900 border-blue-900 hover:bg-blue-50"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
-     {/* RIGHT SIDE: CART + LOGO */}
-<div className="flex items-center gap-3">
-  <div
-  onClick={scrollToCheckout}
-  className="bg-gray-100 border px-3 py-2 rounded-lg text-sm font-semibold whitespace-nowrap cursor-pointer hover:bg-gray-200"
->
-    🛒 {cart.length} items | ${total.toFixed(2)}
-  </div>
-
-  <img
-    src="/images/wolf-logo.webp"
-    alt="Wolf Logo"
-    className="h-12 w-12 object-contain"
-  />
-</div>
-
-    </div>
-  </div>
-
-  <main className="p-6">
-    <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-gray-700">
-  <strong>Order directly from this page for fast processing.</strong><br />
-  All orders are confirmed with Wolf Industries and completed in accordance with agency requirements.
-</div>
-<div className="flex flex-wrap gap-2 mb-6">
-  {categories.map((category) => (
-    <button
-      key={category}
-      onClick={() => setActiveCategory(category)}
-      className={`px-4 py-2 rounded-lg border font-semibold ${
-        activeCategory === category
-          ? "bg-blue-900 text-white border-blue-900"
-          : "bg-white text-blue-900 border-blue-900 hover:bg-blue-50"
-      }`}
-    >
-      {category}
-    </button>
-  ))}
-</div>
-     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {filteredProducts.map((product) => (
-         <div key={product.sku} className="bg-white p-3 rounded shadow-sm">
-           <img
-  src={product.image}
-  className="mb-2 rounded w-full h-32 object-contain bg-white"
-/>
-            <h3 className="font-semibold text-sm">{product.name}</h3>
-<p className="text-xs text-gray-500">{product.description}</p>
-<div className="mt-1 font-semibold text-sm">${product.price}</div>
+          <div key={product.sku} className="bg-white p-3 rounded shadow-sm">
+            <img
+              src={product.image}
+              className="mb-2 rounded w-full h-32 object-contain bg-white"
+            />
+
+            <h3 className="font-bold text-sm">{product.name}</h3>
+            <p className="text-xs text-gray-600">{product.description}</p>
+            <p className="font-bold mt-2">${product.price}</p>
 
             <button
               onClick={() => addToCart(product)}
-             className="mt-2 bg-black text-white px-3 py-1.5 text-sm rounded"
+              className="mt-2 bg-black text-white px-3 py-1.5 text-sm rounded"
             >
               Add to Order
             </button>
@@ -598,51 +627,51 @@ const updateCartQty = (sku: string, change: number) => {
 
         {cart.map((item) => (
           <div key={item.sku} className="flex justify-between items-center mb-3">
-  <div>
-    <div className="font-medium">{item.name}</div>
+            <div>
+              <div className="font-medium">{item.name}</div>
 
-    <div className="flex items-center gap-2 mt-1">
-      <button
-        onClick={() => updateCartQty(item.sku, -1)}
-        className="bg-gray-300 px-2 py-1 rounded"
-      >
-        -
-      </button>
+              <div className="flex items-center gap-2 mt-1">
+                <button
+                  onClick={() => updateCartQty(item.sku, -1)}
+                  className="bg-gray-300 px-2 py-1 rounded"
+                >
+                  -
+                </button>
 
-      <span>{item.qty}</span>
+                <span>{item.qty}</span>
 
-      <button
-        onClick={() => updateCartQty(item.sku, 1)}
-        className="bg-gray-300 px-2 py-1 rounded"
-      >
-        +
-      </button>
-    </div>
+                <button
+                  onClick={() => updateCartQty(item.sku, 1)}
+                  className="bg-gray-300 px-2 py-1 rounded"
+                >
+                  +
+                </button>
+              </div>
 
-    <div className="text-sm text-gray-500 mt-1">
-      ${(item.price * item.qty).toFixed(2)}
-    </div>
-  </div>
+              <div className="text-sm text-gray-500 mt-1">
+                ${(item.price * item.qty).toFixed(2)}
+              </div>
+            </div>
 
-  <button
-    onClick={() => removeFromCart(item.sku)}
-    className="ml-4 bg-red-500 text-white px-3 py-1 rounded text-sm"
-  >
-    Remove
-  </button>
-</div>
-  
-))}
+            <button
+              onClick={() => removeFromCart(item.sku)}
+              className="ml-4 bg-red-500 text-white px-3 py-1 rounded text-sm"
+            >
+              Remove
+            </button>
+          </div>
+        ))}
 
         <div className="mt-4 font-bold">Total: ${total.toFixed(2)}</div>
+
         <button
-  onClick={submitOrder}
-  className="mt-4 bg-green-600 text-white px-6 py-3 rounded text-lg"
->
-  CheckOut
-</button>
+          onClick={submitOrder}
+          className="mt-4 bg-green-600 text-white px-6 py-3 rounded text-lg"
+        >
+          Checkout
+        </button>
       </div>
-      </main>
-    </div>
-  );
+    </main>
+  </div>
+);
 }
