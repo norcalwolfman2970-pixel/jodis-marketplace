@@ -94,32 +94,32 @@ const productBlocks = [
 },
 {
   sku: "PPE-003-S",
-  name: "High-Visibility Safety Vest - Class 2",
-  description: "Reflective vest for construction and roadside safety compliance",
+  name: "High-Visibility Safety Vest - Small - Class 2",
+  description: "Small Reflective vest for construction and roadside safety compliance",
   price: 18,
   image: "/images/safety-vest.png",
   category: "PPE",
 },
 {
   sku: "PPE-003-M",
-  name: "High-Visibility Safety Vest - Class 2",
-  description: "Reflective vest for construction and roadside safety compliance",
+  name: "High-Visibility Safety Vest - Medium - Class 2",
+  description: " Medium Reflective vest for construction and roadside safety compliance",
   price: 18,
   image: "/images/safety-vest.png",
   category: "PPE",
 },
 {
   sku: "PPE-003-L",
-  name: "High-Visibility Safety Vest - Class 2",
-  description: "Reflective vest for construction and roadside safety compliance",
+  name: "High-Visibility Safety Vest - Large - Class 2",
+  description: "Large Reflective vest for construction and roadside safety compliance",
   price: 18,
   image: "/images/safety-vest.png",
   category: "PPE",
 },
 {
   sku: "PPE-003-XL",
-  name: "High-Visibility Safety Vest - Class 2",
-  description: "Reflective vest for construction and roadside safety compliance",
+ name: "High-Visibility Safety Vest - XL - Class 2",
+  description: "Extra Large Reflective vest for construction and roadside safety compliance",
   price: 18,
   image: "/images/safety-vest.png",
   category: "PPE",
@@ -275,7 +275,7 @@ const updateCartQty = (sku: string, change: number) => {
       {/* CENTER TEXT */}
       <div className="text-center flex-1">
         <h1 className="text-3xl font-bold">
-          Wolf Industries Quick Order
+          Jodi's Marketplace
         </h1>
         <p className="text-sm text-gray-600">
           DVBE Supplier – Fast sourcing for office, PPE, facility, and custom orders
