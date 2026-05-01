@@ -275,7 +275,7 @@ const updateCartQty = (sku: string, change: number) => {
       {/* CENTER TEXT */}
       <div className="text-center flex-1">
         <h1 className="text-3xl font-bold">
-          Jodi's Marketplace
+          Wolf Industries Quick Order
         </h1>
         <p className="text-sm text-gray-600">
           DVBE Supplier – Fast sourcing for office, PPE, facility, and custom orders
