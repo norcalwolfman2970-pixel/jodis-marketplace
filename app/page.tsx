@@ -327,10 +327,21 @@ const updateCartQty = (sku: string, change: number) => {
   </div>
 
   <main className="p-6">
-    <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-gray-700">
+    <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-gray-700">
   <strong>Order directly from this page for fast processing.</strong><br />
   All orders are confirmed with Wolf Industries and completed in accordance with agency requirements.
 </div>
+
+<div className="mb-6 rounded-xl border border-orange-200 bg-gradient-to-r from-amber-50 via-orange-50 to-red-50 px-5 py-4 shadow-sm">
+  <div className="text-lg font-bold text-orange-900">Happy Fall from Wolf Industries 🍂🎃</div>
+  <p className="mt-1 text-sm text-orange-900">
+    Seasonal ordering made simple — office, facility, PPE, and custom supply support.
+  </p>
+  <p className="mt-1 text-xs text-orange-700">
+    Wishing you a great October season with fast, reliable ordering support.
+  </p>
+</div>
+
 <div className="flex flex-wrap gap-2 mb-6">
   {categories.map((category) => (
     <button
